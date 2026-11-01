@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>Architetture straordinarie | Viaggio nell’ingegneria</title>
+<style>
+:root{--bg:#080808;--panel:#111;--line:#343434;--red:#e34242;--text:#d0d0d0;--muted:#929292;--white:#f2f2f2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{padding:clamp(2.8rem,8vw,6.5rem) max(6vw,calc((100vw - 1180px)/2)) 2.4rem;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 80% 0%,#251010 0,transparent 48%)}
+.eyebrow{color:var(--red);font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+h1{max-width:1000px;margin:.65rem 0 0;color:var(--red);font-size:clamp(2rem,5.2vw,4.3rem);line-height:1.08;letter-spacing:-.045em;font-weight:750}
+header p{max-width:650px;color:var(--muted);margin:1.2rem 0 0;font-size:1.05rem}
+main{width:min(1180px,88vw);margin:0 auto;padding:3.5rem 0 5rem}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.2rem}
+h2{margin:0;color:var(--red);font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.2}
+.section-heading p{margin:0;color:var(--muted);font-size:.9rem}
+.carousel-shell{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,#121212,#090909);padding:1.1rem;border-radius:14px}
+.carousel{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,31%);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:.2rem .1rem .8rem;scrollbar-color:#555 #171717;scrollbar-width:thin}
+.arch-card{scroll-snap-align:start;min-width:0;border:1px solid #303030;border-radius:10px;background:#0b0b0b;color:inherit;text-align:left;padding:0;cursor:pointer;transition:border-color .2s,transform .2s;overflow:hidden}
+.arch-card:hover,.arch-card:focus-visible{border-color:var(--red);transform:translateY(-3px);outline:none}
+.art{height:190px;display:grid;place-items:center;background:#050505;border-bottom:1px solid #262626;padding:1rem}
+.art svg{width:100%;height:100%;max-width:300px;stroke:#e4e4e4;stroke-width:1.55;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.card-caption{display:flex;align-items:center;gap:.8rem;padding:.9rem 1rem}
+.card-number{color:var(--red);font-size:.78rem;font-weight:800;letter-spacing:.08em}
+.card-name{color:var(--white);font-weight:650}
+.card-arrow{margin-left:auto;color:var(--red);font-size:1.25rem}
+.carousel-controls{display:flex;align-items:center;justify-content:space-between;padding:.4rem .15rem 0}
+.control-group{display:flex;gap:.55rem}
+.arrow{width:40px;height:40px;border:1px solid #444;border-radius:50%;background:#151515;color:var(--white);font-size:1.2rem;cursor:pointer}
+.arrow:hover{border-color:var(--red);color:var(--red)}
+.hint{font-size:.82rem;color:var(--muted)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem}
+.info-panel{padding:1.6rem 1.7rem;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.info-panel h2{font-size:1.55rem;margin-bottom:1rem}
+.info-panel p{margin:.8rem 0;color:var(--text)}
+#detail{display:none;margin-top:2rem;padding:clamp(1.3rem,4vw,2.5rem);border:1px solid #5b2929;border-radius:14px;background:linear-gradient(145deg,#171010,#0d0d0d)}
+#detail.active{display:block}
+.detail-top{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.back{border:1px solid #555;background:transparent;color:#ddd;border-radius:30px;padding:.55rem 1rem;cursor:pointer}
+.back:hover{border-color:var(--red);color:var(--red)}
+.detail-art{height:260px;max-width:600px;margin:1.5rem auto;display:grid;place-items:center;background:#050505;border:1px solid #333;border-radius:10px}
+.detail-art svg{width:90%;height:90%;stroke:#eee;stroke-width:1.35;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#detail h2{font-size:clamp(1.8rem,4vw,3rem);margin:.8rem 0}
+.placeholder{padding:1rem 1.2rem;border-left:2px solid var(--red);background:#151515;color:#aaa}
+footer{border-top:1px solid var(--line);padding:1.5rem 6vw;text-align:center;color:#777;font-size:.82rem}
+@media(max-width:760px){.carousel{grid-auto-columns:minmax(230px,78%)}.info-grid{grid-template-columns:1fr}.section-heading{align-items:start;flex-direction:column}.art{height:175px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Corso · Architettura e ingegneria</div>
+  <h1>Architetture straordinarie: viaggio nell’ingegneria di opere iconiche</h1>
+  <p>Un percorso tra forme, materiali e intuizioni strutturali che hanno trasformato il modo di costruire.</p>
+</header>
+<main>
+  <section aria-labelledby="opere-title">
+    <div class="section-heading">
+      <div><div class="eyebrow">Atlante delle opere</div><h2 id="opere-title">Esplora le architetture</h2></div>
+      <p>Seleziona un’opera per aprire la sua scheda</p>
+    </div>
+    <div class="carousel-shell">
+      <div class="carousel" id="carousel" aria-label="Carousel delle architetture">
+        <button class="arch-card" data-index="0"><div class="art"><svg viewBox="0 0 240 170"><path d="M120 12 L76 154 M120 12 L164 154 M76 154 H164 M91 107 H149 M101 72 H139 M111 38 H129 M88 120 L152 120 M98 84 L142 84 M108 49 L132 49 M120 12 V154 M76 154 L101 72 M164 154 L139 72 M84 130 H156 M95 96 H145 M105 61 H135"/></svg></div><span class="card-caption"><span class="card-number">01</span><span class="card-name">La Tour Eiffel</span><span class="card-arrow">↗</span></span></button>
+        <button class="arch-card" data-index="1"><div class="art"><svg viewBox="0 0 240 170"><path d="M18 126 H222 M28 126 V70 H48 V126 M192 126 V70 H212 V126 M38 70 Q38 20 120 20 Q202 20 202 70 M38 70 H202 M38 70 V126 M202 70 V126 M48 82 H192 M48 100 H192 M48 118 H192 M58 70 V126 M78 70 V126 M98 70 V126 M118 70 V126 M138 70 V126 M158 70 V126 M178 70 V126 M28 126 L38 70 M212 126 L202 70"/></svg></div><span class="card-caption"><span class="card-number">02</span><span class="card-name">Il Ponte di Brooklyn</span><span class="card-arrow">↗</span></span></button>
+        <button class="arch-card" data-index="2"><div class="art"><svg viewBox="0 0 240 170"><path d="M18 132 H222 M42 132 V25 H58 V132 M182 132 V25 H198 V132 M50 25 V12 M190 25 V12 M50 35 Q120 150 190 35 M50 35 Q120 120 190 35 M50 25 L190 25 M50 35 L190 35 M60 43 L60 132 M75 59 L75 132 M90 72 L90 132 M105 83 L105 132 M120 88 L120 132 M135 83 L135 132 M150 72 L150 132 M165 59 L165 132 M180 43 L180 132"/></svg></div><span class="card-caption"><span class="card-number">03</span><span class="card-name">Il Golden Gate Bridge</span><span class="card-arrow">↗</span></span></button>
+        <button class="arch-card" data-index="3"><div class="art"><svg viewBox="0 0 240 170"><path d="M20 136 Q55 42 90 136 Q125 42 160 136 Q195 42 220 136 M20 136 H220 M34 136 Q60 76 86 136 M104 136 Q130 76 156 136 M174 136 Q198 76 214 136 M20 145 H220 M48 120 L48 136 M72 100 L72 136 M120 100 L120 136 M168 100 L168 136 M196 120 L196 136"/></svg></div><span class="card-caption"><span class="card-number">04</span><span class="card-name">Le Coperture di Nervi</span><span class="card-arrow">↗</span></span></button>
+        <button class="arch-card" data-index="4"><div class="art"><svg viewBox="0 0 240 170"><path d="M35 145 H205 M48 145 V95 Q48 30 120 18 Q192 30 192 95 V145 M48 95 Q120 112 192 95 M60 145 V96 M180 145 V96 M72 145 V82 M168 145 V82 M84 145 V67 M156 145 V67 M96 145 V52 M144 145 V52 M108 145 V35 M132 145 V35 M120 18 V145 M48 110 Q120 127 192 110"/></svg></div><span class="card-caption"><span class="card-number">05</span><span class="card-name">La Cupola di Brunelleschi</span><span class="card-arrow">↗</span></span></button>
+        <button class="arch-card" data-index="5"><div class="art"><svg viewBox="0 0 240 170"><path d="M68 145 L88 32 Q120 17 152 32 L172 145 Z M88 32 L120 145 L152 32 M78 90 H162 M82 68 H158 M73 118 H167 M92 32 L102 145 M148 32 L138 145 M60 145 H180 M98 24 L120 10 L142 24"/></svg></div><span class="card-caption"><span class="card-number">06</span><span class="card-name">La Torre di Pisa</span><span class="card-arrow">↗</span></span></button>
+        <button class="arch-card" data-index="6"><div class="art"><svg viewBox="0 0 240 170"><path d="M58 148 V22 H182 V148 M48 148 H192 M70 38 H170 M70 58 H170 M70 78 H170 M70 98 H170 M70 118 H170 M84 22 V148 M106 22 V148 M128 22 V148 M150 22 V148 M172 22 V148 M58 22 L72 10 H168 L182 22 M88 10 V2 M120 10 V2 M152 10 V2"/></svg></div><span class="card-caption"><span class="card-number">07</span><span class="card-name">L’Empire State Building</span><span class="card-arrow">↗</span></span></button>
+        <button class="arch-card" data-index="7"><div class="art"><svg viewBox="0 0 240 170"><path d="M38 145 Q32 85 60 54 Q78 35 92 54 Q105 25 120 12 Q137 28 148 54 Q174 35 190 62 Q211 93 202 145 M38 145 H202 M62 145 V86 M88 145 V70 M120 145 V42 M152 145 V70 M180 145 V86 M62 86 Q78 70 88 86 M88 70 Q105 49 120 70 M120 70 Q137 49 152 70 M152 86 Q168 70 180 86 M52 110 Q120 130 188 110"/></svg></div><span class="card-caption"><span class="card-number">08</span><span class="card-name">La Sagrada Familia</span><span class="card-arrow">↗</span></span></button>
+        <button class="arch-card" data-index="8"><div class="art"><svg viewBox="0 0 240 170"><path d="M34 145 H206 M44 145 V83 H196 V145 M44 83 L120 18 L196 83 M52 83 Q120 98 188 83 M58 145 V90 M82 145 V90 M106 145 V90 M134 145 V90 M158 145 V90 M182 145 V90 M34 145 V135 H206 V145 M72 83 Q120 48 168 83 M120 18 V145"/></svg></div><span class="card-caption"><span class="card-number">09</span><span class="card-name">Il Pantheon</span><span class="card-arrow">↗</span></span></button>
+        <button class="arch-card" data-index="9"><div class="art"><svg viewBox="0 0 240 170"><path d="M25 140 H215 M40 140 V70 H200 V140 M32 70 L120 22 L208 70 M40 70 H200 M54 70 V140 M76 70 V140 M98 70 V140 M120 70 V140 M142 70 V140 M164 70 V140 M186 70 V140 M32 140 L40 70 M208 140 L200 70 M70 56 L120 28 L170 56"/></svg></div><span class="card-caption"><span class="card-number">10</span><span class="card-name">L’Acropoli di Atene</span><span class="card-arrow">↗</span></span></button>
+        <button class="arch-card" data-index="10"><div class="art"><svg viewBox="0 0 240 170"><path d="M30 145 H210 M52 145 V62 L120 18 L188 62 V145 M52 62 H188 M66 145 V76 M86 145 V76 M106 145 V76 M126 145 V76 M146 145 V76 M166 145 V76 M186 145 V76 M42 145 V132 H198 V145 M120 18 V145 M52 62 L42 76 M188 62 L198 76 M70 55 L120 22 L170 55"/></svg></div><span class="card-caption"><span class="card-number">11</span><span class="card-name">La Cattedrale di Notre Dame</span><span class="card-arrow">↗</span></span></button>
+      </div>
+      <div class="carousel-controls">
+        <span class="hint">Scorri orizzontalmente per vedere tutte le opere</span>
+        <div class="control-group"><button class="arrow" id="prev" aria-label="Opere precedenti">←</button><button class="arrow" id="next" aria-label="Opere successive">→</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="detail" aria-live="polite">
+    <div class="detail-top"><span class="eyebrow">Scheda dell’opera</span><button class="back" id="back">← Torna alla home</button></div>
+    <h2 id="detail-title"></h2>
+    <p id="detail-intro">Questa scheda è predisposta per accogliere i contenuti didattici dedicati all’opera selezionata.</p>
+    <div class="detail-art" id="detail-art"></div>
+    <div class="placeholder"><strong>Contenuti in preparazione</strong><br>Qui potranno essere inseriti storia del progetto, materiali, sistema strutturale, tecniche costruttive, figure professionali e approfondimenti critici.</div>
+  </section>
+
+  <section class="info-grid" aria-label="Informazioni sul corso">
+    <article class="info-panel">
+      <div class="eyebrow">Il percorso formativo</div><h2>Obiettivi</h2>
+      <p>Il corso esplora i principi tecnico-strutturali alla base di opere emblematiche di architettura e ingegneria, attraverso l'analisi tecnica di costruzioni straordinarie come, ad esempio, la Torre Eiffel, le Coperture di Nervi e il Ponte di Brooklyn. Gli studenti verranno guidati, attraverso una visione prospettica panoramica, nel mondo dei materiali, delle tecniche costruttive e delle soluzioni tecniche adottate in diverse epoche storiche.</p>
+      <p>Gli studenti acquisiranno competenze nella lettura critica dei manufatti storici, imparando a riconoscere le logiche progettuali e le innovazioni architettoniche ed ingegneristiche che hanno reso possibile la realizzazione di tali opere. Le conoscenze sviluppate durante il corso risultano fondamentali anche per il progetto di nuove costruzioni, offrendo strumenti utili per integrare soluzioni innovative con principi strutturali consolidati. Il corso affronta, inoltre, le sfide legate alla tutela del patrimonio costruito con i moderni metodi di analisi.</p>
+      <p>Al termine del corso, i partecipanti saranno in grado di interpretare e analizzare opere complesse, collegando conoscenze storiche e tecniche per una comprensione completa dell’architettura intesa come insieme soluzioni tecniche razionali ai problemi costruttivi. Il corso, nell’affrontare alcuni temi, si avvale dell’eventuale contributo di esperti di chiara fama.</p>
+    </article>
+    <article class="info-panel">
+      <div class="eyebrow">Valutazione</div><h2>Modalità d'esame</h2>
+      <p>L'esame consiste nella discussione di un tema, scelto dallo studente, relativo ad un’opera significativa di architettura, di un qualsiasi periodo storico, e nella discussione critica degli aspetti tecnico-costruttivi rilevanti.</p>
+      <p>La discussione può avvalersi di un metodo di comunicazione scelto tra relazione scritta, software di presentazione, video e modelli.</p>
+    </article>
+  </section>
+</main>
+<footer>Architetture straordinarie · Viaggio nell’ingegneria di opere iconiche</footer>
+<script>
+const names=["La Tour Eiffel","Il Ponte di Brooklyn","Il Golden Gate Bridge","Le Coperture di Nervi","La Cupola di Brunelleschi","La Torre di Pisa","L’Empire State Building","La Sagrada Familia","Il Pantheon","L’Acropoli di Atene","La Cattedrale di Notre Dame"];
+const cards=[...document.querySelectorAll(".arch-card")], detail=document.getElementById("detail");
+cards.forEach(card=>card.addEventListener("click",()=>{
+  const i=Number(card.dataset.index);
+  document.getElementById("detail-title").textContent=names[i];
+  document.getElementById("detail-art").innerHTML=card.querySelector("svg").outerHTML;
+  document.getElementById("detail-intro").textContent="Approfondimento dedicato a "+names[i]+": i contenuti specifici di questa scheda sono ancora da definire.";
+  detail.classList.add("active");
+  detail.scrollIntoView({behavior:"smooth",block:"start"});
+}));
+document.getElementById("back").addEventListener("click",()=>{detail.classList.remove("active");document.getElementById("opere-title").scrollIntoView({behavior:"smooth"});});
+const carousel=document.getElementById("carousel");
+document.getElementById("prev").addEventListener("click",()=>carousel.scrollBy({left:-carousel.clientWidth*.75,behavior:"smooth"}));
+document.getElementById("next").addEventListener("click",()=>carousel.scrollBy({left:carousel.clientWidth*.75,behavior:"smooth"}));
+</script>
+</body>
+</html>
